@@ -23,6 +23,8 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
+DEVICE_PATH := device/oneplus/enchilada
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a
@@ -145,3 +147,7 @@ TW_INCLUDE_FUSE_NTFS := true
 
 # PBRP specific build flags
 PB_TORCH_PATH := "/sys/class/leds/led:torch_0"
+
+BOARD_AVB_BOOT_ADD_HASH_FOOTER_ARGS += \
+--prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
+--prop com.android.build.boot.security_patch:$(PLATFORM_SECURITY_PATCH)
